@@ -1,0 +1,31 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+div{
+    display: inline-block;
+    margin: 8px;
+    width: 23%;
+    height: 50vh;
+    background-color: lightblue;
+    vertical-align: top;
+}
+    div h2{
+        text-align: center;
+        padding: 20px;
+        font-size: 24pt;
+    }
+    div h4{
+        text-align: center;
+        padding: 20px;
+        font-size: 18pt;
+    }
+    div button{
+        margin: 35px;
+        width: 80%;
+        text-align: center;
+        font-size: 19pt;
+    }
+.activity{
+    background-color: white;
+}

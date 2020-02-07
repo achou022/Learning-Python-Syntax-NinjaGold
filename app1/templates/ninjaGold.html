@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {%load static%}
+    <link rel="stylesheet" href="{%static 'css/ninjaGold.css'%}">
+    <!-- <link rel="stylesheet" href="ninjaGold.css"> -->
+    <title>Ninja Money</title>
+</head>
+<body>
+    <h3>Your Gold: {{request.session.playerGold}}</h3>
+    <div>
+        <h2>Farm</h2>
+        <h4>(earns 10-20 golds)</h4>
+        <form action="process_money" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="location" value="farm">
+            <button type="submit">Find Gold!</button>
+        </form>
+    </div>
+    <div>
+        <h2>Cave</h2>
+        <h4>(earns 5-10 golds)</h4>
+        <form action="process_money" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="location" value="cave">
+            <button type="submit">Find Gold!</button>
+        </form>
+    </div>
+    <div>
+        <h2>House</h2>
+        <h4>(earns 2-5 golds)</h4>
+        <form action="process_money" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="location" value="house">
+            <button type="submit">Find Gold!</button>
+        </form>
+    </div>
+    <div>
+        <h2>Casino</h2>
+        <h4>(earns/takes 0-50 golds)</h4>
+        <form action="process_money" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="location" value="casino">
+            <button type="submit">Find Gold!</button>
+        </form>
+    </div>
+    <div class="activity">
+        <h4>Activities:</h4>
+        {%for result in request.session.earningLog %}
+            {{result | safe}}
+        {% endfor%}
+    </div>
+</body>
+</html>

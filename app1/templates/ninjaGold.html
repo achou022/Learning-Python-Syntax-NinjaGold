@@ -49,9 +49,11 @@
     </div>
     <div class="activity">
         <h4>Activities:</h4>
-        {%for result in request.session.earningLog %}
-            {{result | safe}}
-        {% endfor%}
+        <div class="p-wrapper">
+            {%for result in request.session.earningLog %}
+                {{result | safe}}
+            {% endfor%}
+        </div>
     </div>
 </body>
 </html>

@@ -6,7 +6,7 @@ div{
     display: inline-block;
     margin: 8px;
     width: 23%;
-    height: 50vh;
+    height: 30vh;
     background-color: lightblue;
     vertical-align: top;
 }
@@ -28,4 +28,11 @@ div{
     }
 .activity{
     background-color: white;
+    width: 100%;
 }
+    .p-wrapper{
+        width: 93%;
+        padding: 10px;
+        margin: 10px;
+        background-color:  white;
+    }

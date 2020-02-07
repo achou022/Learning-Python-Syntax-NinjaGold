@@ -11,7 +11,7 @@ def ninjaMenu(request):
     return render(request, "ninjaGold.html")
 
 def processMoney(request):
-    if('farm'==request.POST['location']):
+    if('farm'==request.POST['location']): #sets player's random earning depending on the location
         earning=randInt(10,20)
     elif('cave'==request.POST['location']):
         earning=randInt(5,10)
@@ -19,15 +19,13 @@ def processMoney(request):
         earning=randInt(2,5)
     elif('casino'==request.POST['location']):
         earning=randInt(-50,50)
-    print('money processed')
-    request.session['playerGold']+=earning
+    request.session['playerGold']+=earning #update player gold count
     time=strftime("%m-%d %H:%M:%S %p", localtime())
-    if earning>=0:
-        result=f"<p style=\"color: green;\">Earned {earning} from the {request.POST['location']}! ({time})</p>"
+    if earning>=0: #appends update log for the earning at then and that location
+        request.session['earningLog'].append(f"<p style=\"color: green;\">Earned {earning} from the {request.POST['location']}! ({time})</p>")
     else:
-        result=f"<p style=\"color: red;\">Entered a {request.POST['location']} and lost {earning} golds... Ouch...({time})</p>"
-    request.session['earningLog'].append(result)
-    request.session.save()
+        request.session['earningLog'].append(f"<p style=\"color: red;\">Entered a {request.POST['location']} and lost {earning} golds... Ouch...({time})</p>")
+    request.session.save() #updates the list 
     return redirect('/')
 
 def randInt(min=0, max=100):

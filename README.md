@@ -4,4 +4,4 @@
 * HttpGet
 * HttpPost
 * Django routing
-* handle post requests in Django
+* Handle post requests in Django
